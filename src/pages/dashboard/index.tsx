@@ -43,8 +43,18 @@ interface MetricsNamesData extends Array<string> {}
 const Dashboard = () => {
   const [data, setData] = useState<ChartData>({ labels: [], values: [] });
 
-  const [startDate, setStartDate] = useState<string>("2023-04-27 00:00");
-  const [endDate, setEndDate] = useState<string>("2023-04-27 23:00");
+  const today = new Date()
+
+  const currentDay= String(today.getDate()).padStart(2, '0');
+  const tomorrow = today.getDate() + 1;
+  const currentMonth = String(today.getMonth()+1).padStart(2,"0");
+  const currentYear = today.getFullYear();
+
+  let defaultStartDate = `${currentYear}-${currentMonth}-${currentDay} 00:00`;
+  let defaultEndDate = `${currentYear}-${currentMonth}-${tomorrow} 00:00`;
+
+  const [startDate, setStartDate] = useState<string>(defaultStartDate);
+  const [endDate, setEndDate] = useState<string>(defaultEndDate);
   const [name, setName] = useState<string>("Sales");
   const [duration, setDuration] = useState<string>("Hour");
   const [chartName, setChartName] = useState<string>("Sales");
@@ -128,7 +138,7 @@ const Dashboard = () => {
   };
 
   const options = {
-    responsive: true,
+    responsive:true,
     plugins: {
       legend: {
         position: "top" as const,
@@ -159,7 +169,7 @@ const Dashboard = () => {
 
       <h1>Dashboard</h1>
       <Grid container spacing={2}>
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={6} md={3}>
           <TextField
             type="datetime-local"
             variant="outlined"
@@ -172,7 +182,7 @@ const Dashboard = () => {
             sx={{ mb: 4 }}
           />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={6} md={3}>
         <TextField
             type="datetime-local"
             variant="outlined"
@@ -186,7 +196,7 @@ const Dashboard = () => {
           />
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={6} md={3}>
           <TextField
             value={name}
             onChange={handleNameChange}
@@ -202,7 +212,7 @@ const Dashboard = () => {
           </TextField>
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={6} md={3}>
           <TextField
             value={duration}
             onChange={handleDurationChange}
@@ -225,7 +235,9 @@ const Dashboard = () => {
           </Button>
         </Grid>
       </Grid>
+
       <Line data={chartData} options={options} />
+      
     </div>
   );
 };

@@ -78,7 +78,7 @@ const CreateMetric = () => {
       <h1>Create new metric</h1>
       <form onSubmit={handleSubmit}>
         <Grid container spacing={2}>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <TextField
               name="name"
               type="text"
@@ -92,7 +92,7 @@ const CreateMetric = () => {
               sx={{ mb: 4 }}
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <TextField
               name="value"
               type="number"
@@ -106,7 +106,7 @@ const CreateMetric = () => {
               sx={{ mb: 4 }}
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={6} md={4}>
           <TextField
             name="date"
             type="datetime-local"
