@@ -4,11 +4,8 @@ import { Box, Typography, useTheme } from "@mui/material";
 import PixIcon from "@mui/icons-material/Pix";
 import GraphBox from "@/components/GraphBox";
 
-// const [first, setfirst] = useState(second)
 
-type Props = {};
-
-const Navbar = (props: Props) => {
+const Navbar = () => {
   const { palette } = useTheme();
   const [selected, setSelected] = useState("/");
 
@@ -22,7 +19,7 @@ const Navbar = (props: Props) => {
       </GraphBox>
 
       <GraphBox gap="2rem">
-        <Box sx={{"&:hover":{color:palette.primary[100]}}}>
+        <Box sx={{"&:hover":{color:palette.grey[700]}}}>
           <Link 
           to="/" 
           onClick={()=> setSelected('dashboard')}
@@ -33,7 +30,7 @@ const Navbar = (props: Props) => {
           
           >Dashboard</Link>
         </Box>
-        <Box sx={{"&:hover":{color:palette.primary[100]}}}>
+        <Box sx={{"&:hover":{color:palette.grey[700]}}}>
           <Link 
           to="/new-metric" 
           onClick={()=> setSelected('new-metric')}
