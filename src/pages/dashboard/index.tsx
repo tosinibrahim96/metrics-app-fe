@@ -75,13 +75,15 @@ const Dashboard = () => {
       const baseUrl = import.meta.env.VITE_BASE_URL;
 
       const metricsNamesResponse = await fetch(
-        `${baseUrl}/api/v1/metrics/names`
+        `${baseUrl}/api/v1/metrics/names`,
+        {method: "GET",headers: {"Content-Type": "application/json","ngrok-skip-browser-warning": "skip"}}
       );
       const metricsNamesJsonData = await metricsNamesResponse.json();
       setMetricsNames(metricsNamesJsonData.data);
 
       const response = await fetch(
-        `${baseUrl}/api/v1/metrics?start_date=${startDate}&end_date=${endDate}&name=${name}&duration=${duration}`
+        `${baseUrl}/api/v1/metrics?start_date=${startDate}&end_date=${endDate}&name=${name}&duration=${duration}`,
+        {method: "GET",headers: {"Content-Type": "application/json","ngrok-skip-browser-warning": "skip"}}
       );
       const jsonData = await response.json();
 
