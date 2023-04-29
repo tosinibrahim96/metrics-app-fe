@@ -46,7 +46,7 @@ const CreateMetric = () => {
         },
         body: JSON.stringify(formData),
       });
-      const data = await response.json();
+      await response.json();
 
       handleClose();
       navigate("/", { replace: true });
