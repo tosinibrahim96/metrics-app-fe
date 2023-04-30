@@ -46,16 +46,16 @@ const Dashboard = () => {
   const today = new Date()
 
   const currentDay= String(today.getDate()).padStart(2, '0');
-  const tomorrow = today.getDate() + 1;
+  
   const currentMonth = String(today.getMonth()+1).padStart(2,"0");
   const currentYear = today.getFullYear();
 
   let defaultStartDate = `${currentYear}-${currentMonth}-${currentDay} 00:00`;
-  let defaultEndDate = `${currentYear}-${currentMonth}-${tomorrow} 00:00`;
+  let defaultEndDate = `${currentYear}-${currentMonth}-${currentDay} 23:59`;
 
   const [startDate, setStartDate] = useState<string>(defaultStartDate);
   const [endDate, setEndDate] = useState<string>(defaultEndDate);
-  const [name, setName] = useState<string>("Sales");
+  const [name, setName] = useState<string>("All");
   const [duration, setDuration] = useState<string>("Hour");
   const [chartName, setChartName] = useState<string>("Sales");
   const [metricsNames, setMetricsNames] = useState<MetricsNamesData>([]);
@@ -189,7 +189,7 @@ const Dashboard = () => {
             type="datetime-local"
             variant="outlined"
             color="secondary"
-            label="Start Date"
+            label="End Date"
             onChange={handleEndDateChange}
             value={endDate}
             fullWidth
@@ -206,7 +206,10 @@ const Dashboard = () => {
             fullWidth
             label="Name"
           >
-            {metricsNames.map((option) => (
+            <MenuItem value="All">All</MenuItem>
+            {
+            metricsNames &&
+            metricsNames.map((option) => (
               <MenuItem key={option} value={option}>
                 {option}
               </MenuItem>

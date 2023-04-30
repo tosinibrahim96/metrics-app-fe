@@ -9,6 +9,7 @@ const Navbar = () => {
   const { palette } = useTheme();
   const [selected, setSelected] = useState("/");
 
+
   return (
     <GraphBox mb="0.25rem" p="0.5rem 0rem">
       <GraphBox gap="0.75rem">

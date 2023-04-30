@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   TextField,
+  InputLabel,
   Button,
   Grid,
   Backdrop,
@@ -76,7 +77,7 @@ const CreateMetric = () => {
       )}
 
       <h1>Create new metric</h1>
-      <form onSubmit={handleSubmit}>
+      <form role="create-metric-form" onSubmit={handleSubmit}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={4}>
             <TextField
@@ -112,7 +113,7 @@ const CreateMetric = () => {
             type="datetime-local"
             variant="outlined"
             color="secondary"
-            label="Start Date"
+            label="Date"
             onChange={handleChange}
             value={formData.date}
             fullWidth
