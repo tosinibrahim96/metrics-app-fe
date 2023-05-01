@@ -9,7 +9,11 @@
 # Getting started
 
 ## Project Screenshots
-![Create metric page](https://imgur.com/RlZTvdh)
+![Screenshot 2023-05-01 at 13 28 44](https://user-images.githubusercontent.com/22124878/235452320-3b1f3af5-f933-4096-aff8-d5b8ec3a9a45.png)
+
+![Screenshot 2023-05-01 at 13 29 09](https://user-images.githubusercontent.com/22124878/235452370-4bf5f2fb-05cf-4319-b777-16203722f5e5.png)
+
+
 
 ## Installation
 
