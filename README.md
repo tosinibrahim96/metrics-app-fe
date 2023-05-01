@@ -1,5 +1,7 @@
 # Metrics App Frontend
 
+Click [here](metrics-app-fe.vercel.app) for the live version
+
  [![GitHub license](https://img.shields.io/github/license/gothinkster/laravel-realworld-example-app.svg)](http://opensource.org/licenses/mit-license.php)
 
 > ### React/Typescript frontend codebase for a metrics app that accepts users metric values and dates that eventually plots a graph with the input values.
